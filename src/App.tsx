@@ -1,9 +1,14 @@
-import { useState } from "react";
 import reduxLogo from "./assets/redux.svg";
 import "./App.css";
 
+import { useSelector, useDispatch } from "react-redux";
+import { StoreType } from "./redux/store";
+import { CountActionType } from "./redux/reducers/count-reducer";
+import SimpleComponent from "./components/simple-component";
+
 function App() {
-  const [count, setCount] = useState(0);
+  const count = useSelector((state: StoreType) => state.countReducer.count);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -23,13 +28,26 @@ function App() {
         </a>
       </h2>
       <div className="card">
+        <div className="mb-12">Count is: {count}</div>
+        <button
+          className="button mr-12"
+          onClick={() => {
+            dispatch({ type: CountActionType.INCREMENT });
+          }}
+        >
+          Плюс один
+        </button>
         <button
           className="button"
-          onClick={() => setCount((count) => count + 1)}
+          onClick={() => {
+            dispatch({ type: CountActionType.DECREMENT });
+          }}
         >
-          Count is {count}
+          Мінус один
         </button>
       </div>
+
+      <SimpleComponent />
     </>
   );
 }

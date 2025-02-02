@@ -95,3 +95,11 @@ button:focus-visible {
   background-color: #646cff;
   color: #ffffff;
 }
+
+.mr-12 {
+  margin-right: 12px;
+}
+
+.ml-12 {
+  margin-left: 12px;
+}
