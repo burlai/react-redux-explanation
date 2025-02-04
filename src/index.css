@@ -103,3 +103,17 @@ button:focus-visible {
 .ml-12 {
   margin-left: 12px;
 }
+
+.pt-12 {
+  padding-top: 12px;
+}
+
+.main-light {
+  background-color: #fff;
+  color: #213547;
+}
+
+.main-dark {
+  background-color: #242424;
+  color: #fff;
+}
